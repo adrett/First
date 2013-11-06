@@ -1,5 +1,5 @@
 within ;
-package MyThermo 
+package GitHubFirst 
   package Icons "Icons for ThermoPower library"
     extends Modelica.Icons.Library;
     package Water "Icons for component using water/steam as working fluid"
@@ -666,8 +666,8 @@ package MyThermo
       // Energy balance
       inlet.h_outflow = inStream(outlet.h_outflow);
       inStream(inlet.h_outflow) = outlet.h_outflow;
-      annotation (Icon(graphics={Text(extent={{-100,70},{100,38}},   textString
-              =                                                  "%name")}),
+      annotation (Icon(graphics={Text(extent={{-100,70},{100,38}},   textString=
+                                                                 "%name")}),
           Documentation(info="<HTML>
 <p>This very simple model provides a pressure drop which is proportional to the flowrate, without computing any fluid property.</p>
 </HTML>", revisions="<html>
@@ -725,8 +725,8 @@ package MyThermo
        // Energy balance
        inlet.h_outflow = inStream(outlet.h_outflow);
        inStream(inlet.h_outflow) = outlet.h_outflow;
-      annotation (Icon(graphics={Text(extent={{-100,70},{100,38}},   textString
-              =                                                  "%name")}),
+      annotation (Icon(graphics={Text(extent={{-100,70},{100,38}},   textString=
+                                                                 "%name")}),
           Documentation(info="<HTML>
 <p>This very simple model provides a pressure drop which is proportional to the flowrate, without computing any fluid property.</p>
 </HTML>", revisions="<html>
@@ -795,8 +795,8 @@ package MyThermo
        // Energy balance
        inlet.h_outflow = inStream(outlet.h_outflow);
        inStream(inlet.h_outflow) = outlet.h_outflow;
-      annotation (Icon(graphics={Text(extent={{-100,70},{100,38}},   textString
-              =                                                  "%name")}),
+      annotation (Icon(graphics={Text(extent={{-100,70},{100,38}},   textString=
+                                                                 "%name")}),
           Documentation(info="<HTML>
 <p>This very simple model provides a pressure drop which is proportional to the flowrate, without computing any fluid property.</p>
 </HTML>", revisions="<html>
@@ -835,8 +835,8 @@ package MyThermo
        // Energy balance
        inlet.h_outflow = inStream(outlet.h_outflow) + heatPort.Q_flow/outlet.m_flow;
        inStream(inlet.h_outflow) + heatPort.Q_flow/inlet.m_flow = outlet.h_outflow;
-      annotation (Icon(graphics={Text(extent={{-100,70},{100,38}},   textString
-              =                                                  "%name")}),
+      annotation (Icon(graphics={Text(extent={{-100,70},{100,38}},   textString=
+                                                                 "%name")}),
           Documentation(info="<HTML>
 <p>This very simple model provides a pressure drop which is proportional to the flowrate, without computing any fluid property.</p>
 </HTML>", revisions="<html>
@@ -1293,7 +1293,7 @@ package MyThermo
       annotation (Placement(transformation(extent={{-10,50},{10,70}})));
     LiquidParts.SinkP sinkP
       annotation (Placement(transformation(extent={{68,50},{88,70}})));
-    LiquidParts.SourceW sourceW(T=293.15, w=15.6)
+    LiquidParts.SourceW sourceW(          w=15.6, T=303.15)
       annotation (Placement(transformation(extent={{-82,50},{-62,70}})));
     equation
       connect(pressDrop.outlet, sinkP.flange) annotation (Line(
@@ -1312,4 +1312,4 @@ package MyThermo
 
 
 annotation (uses(Modelica(version="3.2"), ThermoPower(version="3.0")));
-end MyThermo;
+end GitHubFirst;
