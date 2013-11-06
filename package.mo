@@ -666,8 +666,8 @@ package GitHubFirst
       // Energy balance
       inlet.h_outflow = inStream(outlet.h_outflow);
       inStream(inlet.h_outflow) = outlet.h_outflow;
-      annotation (Icon(graphics={Text(extent={{-100,70},{100,38}},   textString=
-                                                                 "%name")}),
+      annotation (Icon(graphics={Text(extent={{-100,70},{100,38}},   textString
+              =                                                  "%name")}),
           Documentation(info="<HTML>
 <p>This very simple model provides a pressure drop which is proportional to the flowrate, without computing any fluid property.</p>
 </HTML>", revisions="<html>
@@ -725,8 +725,8 @@ package GitHubFirst
        // Energy balance
        inlet.h_outflow = inStream(outlet.h_outflow);
        inStream(inlet.h_outflow) = outlet.h_outflow;
-      annotation (Icon(graphics={Text(extent={{-100,70},{100,38}},   textString=
-                                                                 "%name")}),
+      annotation (Icon(graphics={Text(extent={{-100,70},{100,38}},   textString
+              =                                                  "%name")}),
           Documentation(info="<HTML>
 <p>This very simple model provides a pressure drop which is proportional to the flowrate, without computing any fluid property.</p>
 </HTML>", revisions="<html>
@@ -795,8 +795,8 @@ package GitHubFirst
        // Energy balance
        inlet.h_outflow = inStream(outlet.h_outflow);
        inStream(inlet.h_outflow) = outlet.h_outflow;
-      annotation (Icon(graphics={Text(extent={{-100,70},{100,38}},   textString=
-                                                                 "%name")}),
+      annotation (Icon(graphics={Text(extent={{-100,70},{100,38}},   textString
+              =                                                  "%name")}),
           Documentation(info="<HTML>
 <p>This very simple model provides a pressure drop which is proportional to the flowrate, without computing any fluid property.</p>
 </HTML>", revisions="<html>
@@ -835,8 +835,8 @@ package GitHubFirst
        // Energy balance
        inlet.h_outflow = inStream(outlet.h_outflow) + heatPort.Q_flow/outlet.m_flow;
        inStream(inlet.h_outflow) + heatPort.Q_flow/inlet.m_flow = outlet.h_outflow;
-      annotation (Icon(graphics={Text(extent={{-100,70},{100,38}},   textString=
-                                                                 "%name")}),
+      annotation (Icon(graphics={Text(extent={{-100,70},{100,38}},   textString
+              =                                                  "%name")}),
           Documentation(info="<HTML>
 <p>This very simple model provides a pressure drop which is proportional to the flowrate, without computing any fluid property.</p>
 </HTML>", revisions="<html>
@@ -1114,28 +1114,6 @@ package GitHubFirst
               -100},{100,100}}),      graphics));
     end TestSourceDpSink;
 
-    model TestSourceDpSinkExternalMedia
-    //  package Medium = ExternalMedia.Examples.WaterIF95;
-      package Medium = ExternalMedia.Examples.R245faRefProp;
-
-    LiquidParts.SourceW sourceW(redeclare package Medium = Medium)
-      annotation (Placement(transformation(extent={{-92,-10},{-72,10}})));
-    LiquidParts.PressDrop pressDrop(redeclare package Medium = Medium, dp=10000)
-      annotation (Placement(transformation(extent={{-8,-10},{12,10}})));
-    LiquidParts.SinkP sinkP(redeclare package Medium = Medium, p=100000)
-      annotation (Placement(transformation(extent={{70,-10},{90,10}})));
-    equation
-      connect(sourceW.flange, pressDrop.inlet) annotation (Line(
-          points={{-72,0},{-8,0}},
-          color={0,127,255},
-          smooth=Smooth.None));
-      connect(pressDrop.outlet, sinkP.flange) annotation (Line(
-          points={{12,0},{70,0}},
-          color={0,127,255},
-          smooth=Smooth.None));
-    annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}),          graphics));
-    end TestSourceDpSinkExternalMedia;
 
     model TestSourceDpSinkHeatLoss
 
@@ -1308,6 +1286,29 @@ package GitHubFirst
                 Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
               -100},{100,100}}),      graphics));
     end TestSourceDpSinkZanke;
+
+    model TestSourceDpSinkExternalMedia
+    //  package Medium = ExternalMedia.Examples.WaterIF95;
+      package Medium = ExternalMedia.Examples.R245faRefProp;
+
+    LiquidParts.SourceW sourceW(redeclare package Medium = Medium)
+      annotation (Placement(transformation(extent={{-92,-10},{-72,10}})));
+    LiquidParts.PressDrop pressDrop(redeclare package Medium = Medium, dp=10000)
+      annotation (Placement(transformation(extent={{-8,-10},{12,10}})));
+    LiquidParts.SinkP sinkP(redeclare package Medium = Medium, p=100000)
+      annotation (Placement(transformation(extent={{70,-10},{90,10}})));
+    equation
+      connect(sourceW.flange, pressDrop.inlet) annotation (Line(
+          points={{-72,0},{-8,0}},
+          color={0,127,255},
+          smooth=Smooth.None));
+      connect(pressDrop.outlet, sinkP.flange) annotation (Line(
+          points={{12,0},{70,0}},
+          color={0,127,255},
+          smooth=Smooth.None));
+    annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}),          graphics));
+    end TestSourceDpSinkExternalMedia;
   end Test;
 
 
