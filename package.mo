@@ -1309,6 +1309,47 @@ package GitHubFirst
     annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                 {100,100}}),          graphics));
     end TestSourceDpSinkExternalMedia;
+
+    model TestSourceDpSinkZankeCole
+
+    LiquidParts.PressDropZanke
+                          pressDrop(L=6)
+      annotation (Placement(transformation(extent={{-10,50},{10,70}})));
+    LiquidParts.SinkP sinkP
+      annotation (Placement(transformation(extent={{68,50},{88,70}})));
+    LiquidParts.SourceW sourceW(          w=15.6, T=303.15)
+      annotation (Placement(transformation(extent={{-82,50},{-62,70}})));
+    LiquidParts.PressDropColebrook
+                          pressDrop1(
+                                    L=6)
+      annotation (Placement(transformation(extent={{-10,24},{10,44}})));
+    LiquidParts.SinkP sinkP1
+      annotation (Placement(transformation(extent={{68,24},{88,44}})));
+    LiquidParts.SourceW sourceW1(
+                                T=293.15, w=15.6)
+      annotation (Placement(transformation(extent={{-82,24},{-62,44}})));
+    equation
+      connect(pressDrop.outlet, sinkP.flange) annotation (Line(
+          points={{10,60},{68,60}},
+          color={0,127,255},
+          smooth=Smooth.None));
+    connect(sourceW.flange, pressDrop.inlet) annotation (Line(
+        points={{-62,60},{-10,60}},
+        color={0,127,255},
+        smooth=Smooth.None));
+    connect(pressDrop1.outlet, sinkP1.flange) annotation (Line(
+          points={{10,34},{68,34}},
+          color={0,127,255},
+          smooth=Smooth.None));
+    connect(sourceW1.flange, pressDrop1.inlet)
+                                             annotation (Line(
+        points={{-62,34},{-10,34}},
+        color={0,127,255},
+        smooth=Smooth.None));
+      annotation (Placement(transformation(extent={{-92,-10},{-72,10}})),
+                Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+              -100},{100,100}}),      graphics));
+    end TestSourceDpSinkZankeCole;
   end Test;
 
 
