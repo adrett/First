@@ -666,8 +666,8 @@ package GitHubFirst
       // Energy balance
       inlet.h_outflow = inStream(outlet.h_outflow);
       inStream(inlet.h_outflow) = outlet.h_outflow;
-      annotation (Icon(graphics={Text(extent={{-100,70},{100,38}},   textString
-              =                                                  "%name")}),
+      annotation (Icon(graphics={Text(extent={{-100,70},{100,38}},   textString=
+                                                                 "%name")}),
           Documentation(info="<HTML>
 <p>This very simple model provides a pressure drop which is proportional to the flowrate, without computing any fluid property.</p>
 </HTML>", revisions="<html>
@@ -795,8 +795,8 @@ package GitHubFirst
        // Energy balance
        inlet.h_outflow = inStream(outlet.h_outflow);
        inStream(inlet.h_outflow) = outlet.h_outflow;
-      annotation (Icon(graphics={Text(extent={{-100,70},{100,38}},   textString
-              =                                                  "%name")}),
+      annotation (Icon(graphics={Text(extent={{-100,70},{100,38}},   textString=
+                                                                 "%name")}),
           Documentation(info="<HTML>
 <p>This very simple model provides a pressure drop which is proportional to the flowrate, without computing any fluid property.</p>
 </HTML>", revisions="<html>
@@ -835,8 +835,8 @@ package GitHubFirst
        // Energy balance
        inlet.h_outflow = inStream(outlet.h_outflow) + heatPort.Q_flow/outlet.m_flow;
        inStream(inlet.h_outflow) + heatPort.Q_flow/inlet.m_flow = outlet.h_outflow;
-      annotation (Icon(graphics={Text(extent={{-100,70},{100,38}},   textString
-              =                                                  "%name")}),
+      annotation (Icon(graphics={Text(extent={{-100,70},{100,38}},   textString=
+                                                                 "%name")}),
           Documentation(info="<HTML>
 <p>This very simple model provides a pressure drop which is proportional to the flowrate, without computing any fluid property.</p>
 </HTML>", revisions="<html>
@@ -1113,7 +1113,6 @@ package GitHubFirst
                 Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
               -100},{100,100}}),      graphics));
     end TestSourceDpSink;
-
 
     model TestSourceDpSinkHeatLoss
 
